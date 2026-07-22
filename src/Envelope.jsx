@@ -101,7 +101,7 @@ export default function Envelope({ greeting, hint, cards, onFinish }) {
           )}
         </div>
 
-        <p className={`envelope-instruction ${opened ? 'is-hidden' : ''}`}>Press the seal to open</p>
+        <p className={`envelope-instruction ${opened ? 'is-hidden' : ''}`}>Apasa pe inima</p>
       </div>
     </div>
   );

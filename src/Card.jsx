@@ -24,7 +24,7 @@ function QuestionButtons({ onYes }) {
         aria-hidden={noOverwhelmed}
         tabIndex={noOverwhelmed ? -1 : 0}
       >
-        No
+        Nu(apasa)
       </button>
       <button
         type="button"
@@ -32,7 +32,7 @@ function QuestionButtons({ onYes }) {
         onClick={onYes}
         style={{ transform: `scale(${yesScale})` }}
       >
-        Yes, always
+        Desigur, iubitu
       </button>
     </div>
   );
