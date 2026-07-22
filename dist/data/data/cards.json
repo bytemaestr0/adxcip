@@ -1,0 +1,37 @@
+{
+  "envelope": {
+    "greeting": "For You",
+    "hint": "open when you have a quiet moment"
+  },
+  "cards": [
+    {
+      "heading": "Dear you,",
+      "body": [
+        "I wanted to write down a few things I don't say often enough.",
+        "There's no big occasion for this — just a Wednesday, and you, on my mind."
+      ]
+    },
+    {
+      "heading": "The little things",
+      "body": [
+        "It's the small moments that stay with me: the way you laugh at your own jokes before you finish telling them, the playlists you make for no reason, the way you always save me the last bite.",
+        "None of it is dramatic. All of it is everything."
+      ]
+    },
+    {
+      "heading": "Lately",
+      "body": [
+        "I've been noticing how much steadier things feel with you around. Not quieter — just steadier, like the ground makes a little more sense.",
+        "I don't take that for granted."
+      ]
+    },
+    {
+      "heading": "So, then",
+      "body": [
+        "This is just a long way of saying thank you for being exactly who you are, and for letting me be exactly who I am around you."
+      ],
+      "isFinal": true,
+      "question": "Will you keep doing life with me?"
+    }
+  ]
+}

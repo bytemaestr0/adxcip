@@ -1,0 +1,288 @@
+.card-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6vh 20px 4vh;
+  scroll-margin-top: 6vh;
+}
+
+.card-wrap {
+  overflow: visible;
+}
+
+.card {
+  position: relative;
+  width: min(90vw, 620px);
+  background: var(--paper);
+  border-radius: 4px;
+  padding: clamp(28px, 6vw, 56px);
+  box-shadow: 0 30px 60px -30px rgba(75, 30, 40, 0.28);
+  opacity: 0;
+  transform-origin: top center;
+  transform: translateY(72%) scale(0.92) rotateX(8deg);
+  animation: card-emerge 1s var(--ease) forwards;
+  animation-delay: 0.05s;
+  will-change: transform, opacity;
+}
+
+@keyframes card-emerge {
+  0% {
+    opacity: 0;
+    transform: translateY(72%) scale(0.92) rotateX(8deg);
+    box-shadow: 0 10px 18px -12px rgba(75, 30, 40, 0.35);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    box-shadow: 0 30px 60px -30px rgba(75, 30, 40, 0.28);
+  }
+}
+
+.card-final {
+  background: linear-gradient(160deg, var(--paper) 0%, #f3e4d6 100%);
+}
+
+.card-flourish {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  color: var(--rose);
+  opacity: 0.5;
+}
+
+.card-flourish-tl {
+  top: 10px;
+  left: 10px;
+}
+
+.card-flourish-br {
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+.card-heading {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: var(--burgundy);
+  text-align: center;
+}
+
+.card-body {
+  margin: 0 0 16px;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.card-body:last-of-type {
+  margin-bottom: 0;
+}
+
+.card-question {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(107, 39, 55, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.card-question-heart {
+  width: 32px;
+  height: 32px;
+  color: var(--burgundy);
+}
+
+.card-question-text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  color: var(--burgundy-deep);
+}
+
+.card-question-buttons {
+  position: relative;
+  margin-top: 8px;
+  min-height: 90px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px;
+}
+
+.card-no-button {
+  position: relative;
+  z-index: 1;
+  padding: 14px 34px;
+  border: 1px solid rgba(107, 39, 55, 0.35);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.card-no-button:hover:not(:disabled) {
+  background: rgba(107, 39, 55, 0.06);
+}
+
+.card-no-button:disabled {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.card-yes-button {
+  position: relative;
+  z-index: 2;
+  padding: 14px 40px;
+  border: 1px solid var(--burgundy);
+  border-radius: 999px;
+  background: var(--burgundy);
+  color: var(--ivory);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  transition: transform 0.45s var(--ease), background 0.3s var(--ease);
+}
+
+.card-yes-button:hover {
+  background: var(--burgundy-deep);
+}
+
+.card-advance {
+  margin-top: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(107, 39, 55, 0.08);
+  color: var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2.4s ease-in-out infinite;
+  transition: background 0.3s var(--ease);
+}
+
+.card-advance:hover {
+  background: rgba(107, 39, 55, 0.16);
+}
+
+.card-advance-icon {
+  width: 20px;
+  height: 26px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 22px;
+  }
+}
+
+/* Popped-card variant: this is what actually renders now. The card lives
+   inside the envelope's popped-card-slot (see Envelope.css), which is
+   already sized smaller than the envelope, so the card itself just fills
+   whatever box it's given instead of assuming a full standalone page. */
+.card.card-popped {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  padding: clamp(16px, 4.5vw, 34px);
+  opacity: 1;
+  transform: none;
+  animation: none;
+  box-shadow: 0 20px 40px -20px rgba(75, 30, 40, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-popped .card-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-popped .card-flourish {
+  width: 28px;
+  height: 28px;
+}
+
+.card-popped .card-heading {
+  font-size: clamp(1.15rem, 3.2vw, 1.8rem);
+  margin-bottom: 10px;
+}
+
+.card-popped .card-body {
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.card-popped .card-question {
+  margin-top: 16px;
+  padding-top: 14px;
+  gap: 10px;
+}
+
+.card-popped .card-question-heart {
+  width: 22px;
+  height: 22px;
+}
+
+.card-popped .card-question-text {
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+}
+
+.card-popped .card-question-buttons {
+  min-height: 56px;
+  gap: 12px;
+}
+
+.card-popped .card-no-button,
+.card-popped .card-yes-button {
+  padding: 9px 20px;
+  font-size: 0.9rem;
+}
+
+.card-advance-popped {
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  margin-top: 0;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 16px -8px rgba(75, 30, 40, 0.35);
+}
+
+@media (max-width: 480px) {
+  .card.card-popped {
+    padding: 16px 14px;
+  }
+}
